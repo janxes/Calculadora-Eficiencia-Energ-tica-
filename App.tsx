@@ -133,14 +133,28 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-50">
       {/* Top Navbar */}
       <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 min-h-[100px] flex items-center justify-between">
-          <img 
-            src="https://www.medgon.com/wp-content/uploads/2024/05/logotipo-medgon-passivhaus.png" 
-            alt="Medgon Passivhaus" 
-            className="h-16 md:h-20 w-auto object-contain"
-          />
-          <div className="hidden md:flex items-center gap-2 text-brand font-bold text-sm tracking-widest uppercase">
-            <Leaf className="w-5 h-5" />
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <img 
+              src="https://www.medgon.com/wp-content/uploads/2024/05/logotipo-medgon-passivhaus.png" 
+              alt="Medgon Passivhaus" 
+              className="h-16 md:h-20 w-auto object-contain"
+            />
+            <div className="flex flex-col items-center md:items-start md:border-l md:border-slate-200 md:pl-6">
+              <span className="text-slate-400 text-sm md:text-lg font-medium tracking-tight text-center md:text-left leading-tight">
+                Expertos en Passivhaus desde 2012
+              </span>
+              {/* Simulador de Valor en Móvil (+30% aprox de text-[10px] a text-xs/sm e icono a w-5) */}
+              <div className="md:hidden flex items-center gap-1.5 text-brand-600 font-bold text-xs tracking-[0.2em] uppercase mt-1.5">
+                <Leaf className="w-5 h-5" />
+                <span>Simulador de Valor</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Simulador de Valor en Escritorio (+30% aprox de text-sm a text-lg e icono a w-7) */}
+          <div className="hidden md:flex items-center gap-3 text-brand font-bold text-lg tracking-widest uppercase bg-brand-50 px-6 py-3 rounded-full border border-brand-100 shadow-sm shadow-brand-100/50">
+            <Leaf className="w-7 h-7" />
             <span>Simulador de Valor</span>
           </div>
         </div>
@@ -151,7 +165,14 @@ const App: React.FC = () => {
         {/* Header Section */}
         <header className="mb-10">
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Análisis del Ciclo de Vida de Vivienda</h1>
-          <p className="text-slate-500 mt-2 max-w-2xl">Compara el estándar de construcción CTE frente al Passivhaus y descubre la rentabilidad a largo plazo de tu inversión.</p>
+          <div className="mt-4 max-w-4xl text-slate-600 leading-relaxed space-y-2">
+            <p>
+              Compara el estándar de construcción <span className="font-bold text-slate-900">CTE</span> (vivienda legal mínima según el Código Técnico de la Edificación en España) frente a <span className="font-bold text-brand-600">Passivhaus</span>.
+            </p>
+            <p>
+              Passivhaus es una metodología de gran rigor constructivo adoptada a nivel mundial que destaca por su <span className="italic">altísima eficiencia energética, un confort inigualable, predicción energética y la máxima garantía de salud</span> para sus habitantes mediante el filtrado constante de aire. Descubre la rentabilidad real de tu inversión a largo plazo.
+            </p>
+          </div>
         </header>
 
         {/* Configuration Section */}
