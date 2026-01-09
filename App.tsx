@@ -25,7 +25,8 @@ import {
   Calculator,
   Plus,
   Equal,
-  Shield
+  Shield,
+  HelpCircle
 } from 'lucide-react';
 import { ClimateZone, SimulationInputs, SimulationResults, YearData } from './types';
 
@@ -442,9 +443,31 @@ const App: React.FC = () => {
                 </div>
                 
                 <div className="w-full lg:w-auto flex flex-col gap-4 min-w-[300px]">
-                  <div className="bg-brand-500 p-8 rounded-[2rem] shadow-xl shadow-brand-500/20 transform hover:-translate-y-1 transition-transform cursor-default text-center lg:text-left">
-                    <span className="block text-brand-900/60 text-xs mb-1 uppercase font-black tracking-widest">ROI Proyectado (30a)</span>
-                    <span className="text-5xl font-black text-white">{results.roi30.toFixed(0)}%</span>
+                  {/* ROI PROYECTADO SECTION EXPLAINED */}
+                  <div className="bg-brand-500 p-8 rounded-[2rem] shadow-xl shadow-brand-500/20 transform hover:scale-[1.02] transition-transform cursor-default text-center lg:text-left relative overflow-hidden group">
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-center lg:justify-start gap-2 mb-1">
+                        <span className="block text-brand-900/60 text-xs uppercase font-black tracking-widest">ROI Proyectado (30a)</span>
+                        <div className="relative group/roi">
+                          <HelpCircle className="w-4 h-4 text-white/40 hover:text-white transition-colors cursor-help" />
+                          <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-72 p-4 bg-slate-900 text-white text-xs leading-relaxed rounded-2xl opacity-0 invisible group-hover/roi:opacity-100 group-hover/roi:visible transition-all z-50 shadow-2xl border border-white/10">
+                            <p className="font-bold mb-2 text-brand-400">¿Qué es el ROI Proyectado?</p>
+                            <p>Indica el rendimiento financiero de cada euro "extra" que inviertes en Passivhaus. Un ROI del {results.roi30.toFixed(0)}% significa que por cada euro de sobrecoste hoy, recuperarás {(results.roi30 / 100).toFixed(1)} veces esa inversión en ahorros y valor de venta.</p>
+                            <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-slate-900"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <span className="text-6xl font-black text-white">{results.roi30.toFixed(0)}%</span>
+                      <div className="mt-4 pt-4 border-t border-white/20">
+                        <p className="text-brand-900/80 text-xs font-bold leading-relaxed">
+                          Este porcentaje refleja la rentabilidad neta comparando el ahorro energético acumulado y la plusvalía frente a la inversión inicial.
+                        </p>
+                      </div>
+                    </div>
+                    {/* Decorative element */}
+                    <div className="absolute -bottom-6 -right-6 text-white/5 group-hover:text-white/10 transition-colors">
+                      <TrendingUp className="w-32 h-32 rotate-12" />
+                    </div>
                   </div>
                   
                   <div className="bg-slate-800 p-6 rounded-3xl border border-white/5 flex flex-col items-center lg:items-start">
@@ -453,7 +476,7 @@ const App: React.FC = () => {
                       <History className="w-4 h-4 text-slate-400" />
                     </div>
                     <span className="text-2xl font-bold text-white">{results.paybackYear || '>50'} años</span>
-                    <p className="text-slate-500 text-xs mt-1">Tiempo de retorno de la inversión extra.</p>
+                    <p className="text-slate-500 text-xs mt-1 text-center lg:text-left">Tiempo para amortizar el sobrecoste Passivhaus.</p>
                   </div>
                 </div>
               </div>
