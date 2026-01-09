@@ -133,28 +133,28 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-50">
       {/* Top Navbar */}
       <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
             <img 
               src="https://www.medgon.com/wp-content/uploads/2024/05/logotipo-medgon-passivhaus.png" 
               alt="Medgon Passivhaus" 
-              className="h-16 md:h-24 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain"
             />
             <div className="flex flex-col items-center md:items-start md:border-l-2 md:border-slate-100 md:pl-8">
-              <span className="text-slate-400 text-base md:text-xl font-medium tracking-tight text-center md:text-left leading-tight">
+              <span className="text-slate-400 text-sm md:text-lg font-medium tracking-tight text-center md:text-left leading-tight">
                 Expertos en Passivhaus desde 2012
               </span>
-              {/* Simulador de Valor en Móvil (Otro +30% aprox) */}
-              <div className="md:hidden flex items-center gap-2 text-brand-600 font-bold text-base tracking-[0.25em] uppercase mt-3 bg-brand-50 px-4 py-2 rounded-full border border-brand-100">
-                <Leaf className="w-6 h-6" />
+              {/* Simulador de Valor en Móvil (Reducido ~30%) */}
+              <div className="md:hidden flex items-center gap-1.5 text-brand-600 font-bold text-xs tracking-[0.2em] uppercase mt-2 bg-brand-50 px-3 py-1.5 rounded-full border border-brand-100">
+                <Leaf className="w-4 h-4" />
                 <span>Simulador de Valor</span>
               </div>
             </div>
           </div>
           
-          {/* Simulador de Valor en Escritorio (Otro +30% aprox: text-lg -> text-2xl, w-7 -> w-10) */}
-          <div className="hidden md:flex items-center gap-4 text-brand font-black text-2xl tracking-widest uppercase bg-brand-50 px-10 py-5 rounded-full border-2 border-brand-100 shadow-lg shadow-brand-500/10 hover:scale-105 transition-transform cursor-default">
-            <Leaf className="w-10 h-10" />
+          {/* Simulador de Valor en Escritorio (Reducido ~30%: text-2xl -> text-lg, w-10 -> w-7, padding ajustado) */}
+          <div className="hidden md:flex items-center gap-3 text-brand font-black text-lg tracking-widest uppercase bg-brand-50 px-7 py-3 rounded-full border-2 border-brand-100 shadow-md shadow-brand-500/5 hover:scale-105 transition-transform cursor-default">
+            <Leaf className="w-7 h-7" />
             <span>Simulador de Valor</span>
           </div>
         </div>
@@ -248,6 +248,7 @@ const App: React.FC = () => {
                 value={inputs.energyInflation} 
                 min={0} max={15} step={0.5}
                 onChange={(v) => setInputs({...inputs, energyInflation: v})} 
+                tooltip="La inflación media anual de la factura de luz en hogares (PVPC, tarifa regulada) en España entre 2015-2025 ha sido aproximadamente +4 % a +6 % compuesto (muy volátil por picos 2021-2022). En 2025 subió +15,5 %. Fuente fiable: Facua-Consumidores en Acción (estudio enero 2026 sobre 2025)"
               />
               <div className="mt-6 p-4 bg-brand-50 rounded-2xl border border-brand-100">
                 <div className="flex justify-between items-center">
