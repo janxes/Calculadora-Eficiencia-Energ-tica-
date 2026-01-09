@@ -152,7 +152,7 @@ const App: React.FC = () => {
             </div>
           </div>
           
-          {/* Simulador de Valor en Escritorio (Reducido ~30%: text-2xl -> text-lg, w-10 -> w-7, padding ajustado) */}
+          {/* Simulador de Valor en Escritorio (Reducido ~30%) */}
           <div className="hidden md:flex items-center gap-3 text-brand font-black text-lg tracking-widest uppercase bg-brand-50 px-7 py-3 rounded-full border-2 border-brand-100 shadow-md shadow-brand-500/5 hover:scale-105 transition-transform cursor-default">
             <Leaf className="w-7 h-7" />
             <span>Simulador de Valor</span>
@@ -190,15 +190,26 @@ const App: React.FC = () => {
                 value={inputs.m2} 
                 min={50} max={500} step={10}
                 onChange={(v) => setInputs({...inputs, m2: v})} 
+                tooltip="Superficie interior habitable de la vivienda. Es la base para determinar los metros cuadrados de calefacción/refrigeración y el presupuesto total."
               />
               <SidebarInput 
                 label="Coste Construcción (€/m²)" 
                 value={inputs.constructionCostM2} 
                 min={800} max={3000} step={50}
                 onChange={(v) => setInputs({...inputs, constructionCostM2: v})} 
+                tooltip="Inversión base por metro cuadrado para una vivienda convencional. Incluye materiales y mano de obra bajo normativa básica (CTE)."
               />
               <div className="mt-4">
-                <label className="block text-sm font-medium text-slate-700 mb-2">Zona Climática</label>
+                <div className="flex items-center gap-1.5 mb-2 group relative">
+                  <label className="text-sm font-medium text-slate-700">Zona Climática</label>
+                  <div className="relative cursor-help">
+                    <Info className="w-3.5 h-3.5 text-slate-400 hover:text-brand-500 transition-colors" />
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-900 text-white text-[10px] leading-relaxed rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-[60] shadow-xl pointer-events-none">
+                      Clasificación del Código Técnico (CTE) que define la severidad del clima. Afecta directamente a la demanda energética legal mínima de la vivienda.
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-slate-900"></div>
+                    </div>
+                  </div>
+                </div>
                 <select
                   value={inputs.climateZone}
                   onChange={handleZoneChange}
@@ -220,18 +231,21 @@ const App: React.FC = () => {
                 value={inputs.passivhausPremium} 
                 min={0} max={25} step={0.5}
                 onChange={(v) => setInputs({...inputs, passivhausPremium: v})} 
+                tooltip="Incremento del presupuesto necesario para subir el estándar de CTE a Passivhaus (aprox. 5-15%). Incluye mejor envolvente y sistema de ventilación."
               />
               <SidebarInput 
                 label="Demanda CTE (kWh/m²a)" 
                 value={inputs.cteDemand} 
                 min={10} max={150} step={1}
                 onChange={(v) => setInputs({...inputs, cteDemand: v})} 
+                tooltip="Consumo estimado de una vivienda legal mínima según normativa. Varía según la zona climática y la calidad del diseño arquitectónico estándar."
               />
                <SidebarInput 
                 label="Demanda PH (kWh/m²a)" 
                 value={inputs.phDemand} 
                 min={5} max={15} step={1}
                 onChange={(v) => setInputs({...inputs, phDemand: v})} 
+                tooltip="Consumo máximo permitido para el estándar Passivhaus (15 kWh/m²a). Es un valor predictivo real y garantizado por el protocolo de certificación."
               />
             </div>
 
@@ -242,6 +256,7 @@ const App: React.FC = () => {
                 value={inputs.kwhPrice} 
                 min={0.10} max={0.60} step={0.01}
                 onChange={(v) => setInputs({...inputs, kwhPrice: v})} 
+                tooltip="Coste medio del kWh en tu factura eléctrica actual (término variable + impuestos). Determina el impacto económico de cada kWh ahorrado."
               />
               <SidebarInput 
                 label="Inflación Energía (%)" 
