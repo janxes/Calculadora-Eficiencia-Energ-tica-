@@ -16,72 +16,72 @@ import {
 const FeaturesGrid: React.FC = () => {
   const features = [
     {
-      icon: <Wind className="w-10 h-10" />,
-      title: "Salud respiratoria",
-      desc: "Aire filtrado libre de polen, polvo y partículas contaminantes 24/7."
+      icon: <Wind className="w-12 h-12" />,
+      title: "Salud",
+      desc: "Aire filtrado libre de polen y contaminación."
     },
     {
-      icon: <Volume2 className="w-10 h-10" />,
-      title: "Silencio absoluto",
-      desc: "Aislamiento acústico superior que elimina el ruido del tráfico y exterior."
+      icon: <Volume2 className="w-12 h-12" />,
+      title: "Silencio",
+      desc: "Máximo aislamiento contra ruidos externos."
     },
     {
-      icon: <Thermometer className="w-10 h-10" />,
-      title: "Temperatura estable",
-      desc: "Confort térmico constante en toda la casa, sin zonas frías ni corrientes."
+      icon: <Thermometer className="w-12 h-12" />,
+      title: "Confort",
+      desc: "Temperatura suave y constante 24/7."
     },
     {
-      icon: <Layers className="w-10 h-10" />,
-      title: "Aislamiento superior",
-      desc: "Un 'abrigo' continuo de gran espesor que protege la vivienda del clima."
+      icon: <Layers className="w-12 h-12" />,
+      title: "Aislamiento",
+      desc: "Un 'abrigo' grueso que protege su hogar."
     },
     {
-      icon: <ShieldCheck className="w-10 h-10" />,
-      title: "Hermeticidad al aire",
-      desc: "Construcción estanca que evita fugas de energía e infiltraciones de aire."
+      icon: <ShieldCheck className="w-12 h-12" />,
+      title: "Sin fugas",
+      desc: "Casa hermética para no perder calor."
     },
     {
-      icon: <Square className="w-10 h-10" />,
-      title: "Ventanas premium",
-      desc: "Carpinterías de altas prestaciones con triple vidrio y máxima eficiencia."
+      icon: <Square className="w-12 h-12" />,
+      title: "Ventanas",
+      desc: "Máxima calidad con triple cristal."
     },
     {
-      icon: <RefreshCw className="w-10 h-10" />,
-      title: "Ventilación eficiente",
-      desc: "Recuperador de calor que renueva el aire sin perder la temperatura interior."
+      icon: <RefreshCw className="w-12 h-12" />,
+      title: "Ventilación",
+      desc: "Renovación de aire sin abrir ventanas."
     },
     {
-      icon: <CheckCircle2 className="w-10 h-10" />,
-      title: "Sin puentes térmicos",
-      desc: "Diseño riguroso que elimina puntos débiles por donde se escapa el calor."
+      icon: <CheckCircle2 className="w-12 h-12" />,
+      title: "Precisión",
+      desc: "Diseño riguroso sin fallos técnicos."
     },
     {
-      icon: <Sun className="w-10 h-10" />,
-      title: "Confort veraniego",
-      desc: "Estrategias de protección solar para mantener la casa fresca en olas de calor."
+      icon: <Sun className="w-12 h-12" />,
+      title: "Verano",
+      desc: "Casa fresca incluso en olas de calor."
     },
     {
-      icon: <Zap className="w-10 h-10" />,
-      title: "Consumo garantizado",
-      desc: "Bajo consumo energético certificado y predecible, sin sorpresas en facturas."
+      icon: <Zap className="w-12 h-12" />,
+      title: "Ahorro",
+      desc: "Bajísimo consumo de luz garantizado."
     }
   ];
 
   return (
-    <section className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm">
-      <div className="mb-12 text-center md:text-left">
-        <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-3 tracking-tight">Los 10 Pilares de tu Bienestar</h2>
-        <p className="text-lg text-slate-500 max-w-3xl">La excelencia constructiva que convierte una casa en un refugio de salud y eficiencia absoluta.</p>
+    <section className="bg-white rounded-[3rem] border border-slate-200 p-10 md:p-14 shadow-sm">
+      <div className="mb-14 text-center md:text-left">
+        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-5 tracking-tight">Los 10 Pilares del Passivhaus</h2>
+        <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-4xl">La máxima excelencia constructiva aplicada a su bienestar diario.</p>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
         {features.map((f, i) => (
-          <div key={i} className="group p-8 bg-slate-50 rounded-[2rem] border border-slate-100 hover:border-brand-200 hover:bg-brand-50 transition-all duration-300 flex flex-col items-center text-center lg:items-start lg:text-left">
-            <div className="mb-6 text-brand-600 group-hover:scale-110 transition-transform duration-300">
+          <div key={i} className="group p-10 bg-slate-50 rounded-[3rem] border-2 border-slate-50 hover:border-brand-200 hover:bg-brand-50 transition-all duration-300 flex flex-col items-center text-center shadow-sm">
+            <div className="mb-8 text-brand-600 group-hover:scale-110 transition-transform duration-300">
               {f.icon}
             </div>
-            <h4 className="font-black text-slate-900 text-xl mb-4 leading-tight group-hover:text-brand-700 tracking-tight">{f.title}</h4>
-            <p className="text-sm text-slate-600 leading-relaxed font-medium">{f.desc}</p>
+            <h4 className="font-black text-slate-900 text-2xl mb-5 leading-tight group-hover:text-brand-700 tracking-tight">{f.title}</h4>
+            <p className="text-lg text-slate-600 leading-relaxed font-bold opacity-80">{f.desc}</p>
           </div>
         ))}
       </div>
