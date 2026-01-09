@@ -133,28 +133,28 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-50">
       {/* Top Navbar */}
       <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
             <img 
               src="https://www.medgon.com/wp-content/uploads/2024/05/logotipo-medgon-passivhaus.png" 
               alt="Medgon Passivhaus" 
-              className="h-16 md:h-20 w-auto object-contain"
+              className="h-16 md:h-24 w-auto object-contain"
             />
-            <div className="flex flex-col items-center md:items-start md:border-l md:border-slate-200 md:pl-6">
-              <span className="text-slate-400 text-sm md:text-lg font-medium tracking-tight text-center md:text-left leading-tight">
+            <div className="flex flex-col items-center md:items-start md:border-l-2 md:border-slate-100 md:pl-8">
+              <span className="text-slate-400 text-base md:text-xl font-medium tracking-tight text-center md:text-left leading-tight">
                 Expertos en Passivhaus desde 2012
               </span>
-              {/* Simulador de Valor en Móvil (+30% aprox de text-[10px] a text-xs/sm e icono a w-5) */}
-              <div className="md:hidden flex items-center gap-1.5 text-brand-600 font-bold text-xs tracking-[0.2em] uppercase mt-1.5">
-                <Leaf className="w-5 h-5" />
+              {/* Simulador de Valor en Móvil (Otro +30% aprox) */}
+              <div className="md:hidden flex items-center gap-2 text-brand-600 font-bold text-base tracking-[0.25em] uppercase mt-3 bg-brand-50 px-4 py-2 rounded-full border border-brand-100">
+                <Leaf className="w-6 h-6" />
                 <span>Simulador de Valor</span>
               </div>
             </div>
           </div>
           
-          {/* Simulador de Valor en Escritorio (+30% aprox de text-sm a text-lg e icono a w-7) */}
-          <div className="hidden md:flex items-center gap-3 text-brand font-bold text-lg tracking-widest uppercase bg-brand-50 px-6 py-3 rounded-full border border-brand-100 shadow-sm shadow-brand-100/50">
-            <Leaf className="w-7 h-7" />
+          {/* Simulador de Valor en Escritorio (Otro +30% aprox: text-lg -> text-2xl, w-7 -> w-10) */}
+          <div className="hidden md:flex items-center gap-4 text-brand font-black text-2xl tracking-widest uppercase bg-brand-50 px-10 py-5 rounded-full border-2 border-brand-100 shadow-lg shadow-brand-500/10 hover:scale-105 transition-transform cursor-default">
+            <Leaf className="w-10 h-10" />
             <span>Simulador de Valor</span>
           </div>
         </div>
